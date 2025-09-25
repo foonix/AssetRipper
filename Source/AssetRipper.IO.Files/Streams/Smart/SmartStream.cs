@@ -50,6 +50,11 @@ public sealed partial class SmartStream : Stream
 		return new SmartStream(new MemoryStream(buffer, offset, size, writable));
 	}
 
+	public static SmartStream CreatePartial(Stream stream, long offset, long length)
+	{
+		return new SmartStream(new PartialStream(stream, offset, length, false));
+	}
+
 	/// <summary>
 	/// Create a <see cref="SmartStream"/> with no backing stream.
 	/// </summary>

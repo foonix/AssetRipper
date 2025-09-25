@@ -40,6 +40,7 @@ public static class SchemeReader
 
 	public static FileBase ReadFile(SmartStream stream, string filePath, string fileName)
 	{
+		stream.Position = 0;
 		foreach (IScheme scheme in schemes)
 		{
 			if (scheme.CanRead(stream))
